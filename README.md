@@ -5,10 +5,9 @@ die Daten unter `http://<SERVER>:9116/metrics` im Prometheus-Format aus.
 
 ## Inhalt
 
-- **snmp_exporter.py** – Das Hauptskript (pysnmp + prometheus_client)  
-- **grafana-dashboard.json** – Fertiges Dashboard für Grafana  
-- **prometheus.yml** – Beispiel-Scrape-Konfiguration  
-- **snmp_exporter.service** – systemd-Unit  
+- **snmp_metricexporter.py** – Das Hauptskript (pysnmp + prometheus_client)  
+- **snmp_metricexporter_grafana.json** – Fertiges Dashboard für Grafana    
+- **snmp_metricexporter.service** – systemd-Unit  
 - **docs/INSTALL.md** – Detaillierte Installations- und Betriebshinweise  
 
 ## Schnellstart
