@@ -35,8 +35,8 @@ from pysnmp.hlapi import (
 
 # Gerätekonfiguration (Platzhalter-Name und SNMP-Zugangsdaten)
 geraete_bezeichnung = "Switch-Schul_IT-Aruba-6100" #Platzhalter für 
-community_string = 'schulit'
-snmp_host = '10.10.240.79'   # IP-Adresse des SNMP-Geräts
+community_string = 'public'
+snmp_host = '0.0.0.0'   # IP-Adresse des SNMP-Geräts
 snmp_port = 161
 
 # Prometheus-Metriken definieren
