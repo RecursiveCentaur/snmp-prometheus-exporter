@@ -1,0 +1,14 @@
+[Unit]
+Description=SNMP Prometheus Exporter
+After=network.target
+
+[Service]
+Type=simple
+User=prometheus
+Group=prometheus
+ExecStart=/usr/bin/env python3 /pfad/zum/repo/snmp_exporter.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

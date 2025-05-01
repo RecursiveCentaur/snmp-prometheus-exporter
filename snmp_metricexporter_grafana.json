@@ -1,0 +1,86 @@
+{
+	"panels": [
+		{
+			"type": "graph",
+			"title": "Eingehender Traffic",
+			"targets": [
+				{
+					"expr": "snmp_if_in_octets{interface=~\"$schnittstelle\"}",
+					"legendFormat": "{{interface}}",
+					"refId": "A"
+				}
+			]
+		},
+		{
+			"type": "graph",
+			"title": "Ausgehender Traffic",
+			"targets": [
+				{
+					"expr": "snmp_if_out_octets{interface=~\"$schnittstelle\"}",
+					"legendFormat": "{{interface}}",
+					"refId": "A"
+				}
+			]
+		},
+		{
+			"type": "stat",
+			"title": "Hostname",
+			"targets": [
+				{
+					"expr": "snmp_device_info",
+					"refId": "A"
+				}
+			],
+			"fieldConfig": {
+				"defaults": {
+					"unit": "none"
+				}
+			},
+			"options": {
+				"orientation": "auto",
+				"colorMode": "value"
+			},
+			"transformations": [
+				{
+					"id": "extractFields",
+					"options": {
+						"labels": [
+							"hostname"
+						]
+					}
+				}
+			]
+		},
+		{
+			"type": "stat",
+			"title": "Standort",
+			"targets": [
+				{
+					"expr": "snmp_device_info",
+					"refId": "A"
+				}
+			],
+			"transformations": [
+				{
+					"id": "extractFields",
+					"options": {
+						"labels": [
+							"standort"
+						]
+					}
+				}
+			]
+		}
+	],
+	"templating": {
+		"list": [
+			{
+				"name": "schnittstelle",
+				"type": "query",
+				"datasource": "Prometheus",
+				"query": "label_values(snmp_if_in_octets, interface)",
+				"includeAll": false
+			}
+		]
+	}
+}
